@@ -10,13 +10,21 @@ return {
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-	
+
       require('telescope').load_extension('project')
-      vim.keymap.set('n', '<C-p>', ":lua require'telescope'.extensions.project.project{}<CR>", {noremap = true, silent = true})
+      vim.keymap.set('n', '<C-p>', ":lua require'telescope'.extensions.project.project{}<CR>",
+        { noremap = true, silent = true })
+      vim.keymap.set('n', '<C-h>', ":Telescope helpgrep<CR>")
     end
   },
   {
     'nvim-telescope/telescope-project.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim'
+    }
+  },
+  {
+    'catgoose/telescope-helpgrep.nvim',
     dependencies = {
       'nvim-telescope/telescope.nvim'
     }
