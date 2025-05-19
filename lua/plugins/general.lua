@@ -1,5 +1,14 @@
 return {
-	{ 'akinsho/toggleterm.nvim', version = "*", opts = {} },
+	{
+		'akinsho/toggleterm.nvim',
+		version = "*",
+		opts = {},
+		init = function()
+			vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", {
+				desc = "Toggle Terminal"
+			})
+		end
+	},
 	{
 		'Shatur/neovim-session-manager',
 		init = function()
@@ -14,8 +23,10 @@ return {
 			local toggle = function()
 				if vim.g.currentSessionMode == config.AutoloadMode.LastSession then
 					vim.g.currentSessionMode = config.AutoloadMode.Disabled
+					print("CurrentSessionMode: Disabled")
 				else
 					vim.g.currentSessionMode = config.AutoloadMode.LastSession
+					print("CurrentSessionMode: LastSession")
 				end
 				session_manager.setup({ autoload_mode = vim.g.currentSessionMode })
 			end
@@ -42,5 +53,11 @@ return {
 					desc = "Search on current file"
 				})
 		end,
-	}
+	},
+	{
+		"m4xshen/hardtime.nvim",
+		lazy = false,
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {},
+	},
 }
