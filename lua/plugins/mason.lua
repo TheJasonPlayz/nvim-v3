@@ -9,6 +9,7 @@ return {
 				automatic_enable = false
 			})
 
+
 			for _, serv in ipairs(vim.g.language_servers) do
 				vim.lsp.enable(serv, true)
 			end

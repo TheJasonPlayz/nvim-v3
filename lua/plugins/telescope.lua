@@ -2,7 +2,9 @@ return {
 	{
 		'nvim-telescope/telescope.nvim',
 		dependencies = {
-			'nvim-lua/plenary.nvim'
+			'nvim-lua/plenary.nvim',
+			'nvim-telescope/telescope-project.nvim',
+			'catgoose/telescope-helpgrep.nvim',
 		},
 		init = function()
 			local builtin = require('telescope.builtin')
@@ -16,16 +18,4 @@ return {
 			vim.keymap.set('n', '<C-h>', ":Telescope helpgrep<CR>")
 		end
 	},
-	{
-		'nvim-telescope/telescope-project.nvim',
-		dependencies = {
-			'nvim-telescope/telescope.nvim'
-		}
-	},
-	{
-		'catgoose/telescope-helpgrep.nvim',
-		dependencies = {
-			'nvim-telescope/telescope.nvim'
-		}
-	}
 }
